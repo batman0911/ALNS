@@ -2,7 +2,7 @@ from alns import State
 
 
 class VarObj(State):
-    """Test solution state object with variable objective."""
+    """Test solution alns_state object with variable objective."""
 
     def __init__(self, obj: float):
         self.obj = obj

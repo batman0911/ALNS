@@ -65,11 +65,11 @@ class OperatorSelectionScheme(ABC):
         Parameters
         ----------
         rnd_state
-            Random state object, to be used for random number generation.
+            Random alns_state object, to be used for random number generation.
         best
-            The best solution state observed so far.
+            The best solution alns_state observed so far.
         current
-            The current solution state.
+            The current solution alns_state.
 
         Returns
         -------
@@ -89,7 +89,7 @@ class OperatorSelectionScheme(ABC):
         Parameters
         ----------
         candidate
-            The candidate solution state.
+            The candidate solution alns_state.
         d_idx
             Destroy operator index.
         r_idx

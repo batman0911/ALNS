@@ -107,7 +107,7 @@ def test_accepts_equal():
 
     for _ in range(100):
         # This results in an acceptance probability of exp{0}, that is, one.
-        # Thus, the candidate state should always be accepted.
+        # Thus, the candidate alns_state should always be accepted.
         assert_(simulated_annealing(rnd.RandomState(), One(), One(), One()))
 
 

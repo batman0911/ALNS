@@ -41,8 +41,8 @@ class ALNS:
     Parameters
     ----------
     rnd_state
-        Optional random state to use for random number generation. When
-        passed, this state is used for operator selection and general
+        Optional random alns_state to use for random number generation. When
+        passed, this alns_state is used for operator selection and general
         computations requiring random numbers. It is also passed to the
         destroy and repair operators, as a second argument.
 
@@ -96,17 +96,17 @@ class ALNS:
 
         .. warning::
 
-            A destroy operator will receive the current solution state
+            A destroy operator will receive the current solution alns_state
             maintained by the ALNS instance, not a copy. Make sure to modify
-            a **copy** of this state in the destroy operator, created using,
+            a **copy** of this alns_state in the destroy operator, created using,
             for example, :func:`copy.copy` or :func:`copy.deepcopy`.
 
         Parameters
         ----------
         op
-            An operator that, when applied to the current state, returns a new
-            state reflecting its implemented destroy action. Its second
-            argument is the random state passed to the ALNS instance.
+            An operator that, when applied to the current alns_state, returns a new
+            alns_state reflecting its implemented destroy action. Its second
+            argument is the random alns_state passed to the ALNS instance.
         name
             Optional name argument, naming the operator. When not passed, the
             function name is used instead.
@@ -123,9 +123,9 @@ class ALNS:
         Parameters
         ----------
         op
-            An operator that, when applied to the destroyed state, returns a
-            new state reflecting its implemented repair action. Its second
-            argument is the random state passed to the ALNS instance.
+            An operator that, when applied to the destroyed alns_state, returns a
+            new alns_state reflecting its implemented repair action. Its second
+            argument is the random alns_state passed to the ALNS instance.
         name
             Optional name argument, naming the operator. When not passed, the
             function name is used instead.
@@ -226,7 +226,7 @@ class ALNS:
     def on_best(self, func: _CallbackType):
         """
         Sets a callback function to be called when ALNS finds a new global best
-        solution state.
+        solution alns_state.
         """
         logger.debug(f"Adding on_best callback {func.__name__}.")
         self._on_outcome[Outcome.BEST] = func

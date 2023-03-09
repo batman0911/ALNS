@@ -10,6 +10,6 @@ class State(ABC):
     @abstractmethod
     def objective(self) -> float:
         """
-        Computes the state's associated objective value.
+        Computes the alns_state's associated objective value.
         """
         return NotImplemented

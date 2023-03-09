@@ -16,7 +16,7 @@ class Result:
     Parameters
     ----------
     best
-        The best state observed during the entire iteration.
+        The best alns_state observed during the entire iteration.
     statistics
         Statistics collected during iteration.
     """
@@ -28,7 +28,7 @@ class Result:
     @property
     def best_state(self) -> State:
         """
-        The best state observed during the entire iteration.
+        The best alns_state observed during the entire iteration.
         """
         return self._best
 

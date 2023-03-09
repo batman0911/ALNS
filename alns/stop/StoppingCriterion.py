@@ -20,9 +20,9 @@ class StoppingCriterion(ABC):
         rnd
             May be used to draw random numbers from.
         best
-            The best solution state observed so far.
+            The best solution alns_state observed so far.
         current
-            The current solution state.
+            The current solution alns_state.
 
         Returns
         -------

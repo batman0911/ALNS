@@ -7,7 +7,7 @@ from alns import State
 
 class CvrpState(State):
     """
-    Solution state for CVRP. It has two data members, routes and unassigned.
+    Solution alns_state for CVRP. It has two data members, routes and unassigned.
     Routes is a list of list of integers, where each inner list corresponds to
     a single route denoting the sequence of customers to be visited. A route
     does not contain the start and end depot. Unassigned is a list of integers,

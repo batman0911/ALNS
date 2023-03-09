@@ -118,7 +118,7 @@ def get_operator_plot(
 
 def test_result_state():
     """
-    Tests if the result object correctly returns the passed-in state.
+    Tests if the result object correctly returns the passed-in alns_state.
     """
     best = Sentinel()
 

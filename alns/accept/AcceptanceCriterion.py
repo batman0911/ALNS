@@ -23,15 +23,15 @@ class AcceptanceCriterion(ABC):
         rnd
             May be used to draw random numbers from.
         best
-            The best solution state observed so far.
+            The best solution alns_state observed so far.
         current
-            The current solution state.
+            The current solution alns_state.
         candidate
-            The proposed solution state.
+            The proposed solution alns_state.
 
         Returns
         -------
         bool
-            Whether to accept the candidate state (True), or not (False).
+            Whether to accept the candidate alns_state (True), or not (False).
         """
         return NotImplemented
