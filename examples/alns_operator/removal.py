@@ -17,17 +17,32 @@ class Removal:
         """
         Removes a number of randomly selected customers from the passed-in solution.
         """
-        # destroyed = alns_state.copy()
+        destroyed = state.copy()
 
         for customer in rnd_state.choice(
-                range(1, state.data.dimension), self.customers_to_remove, replace=False
+                range(1, destroyed.data.dimension), self.customers_to_remove, replace=False
         ):
-            state.unassigned.append(customer)
-            route = state.find_route(customer)
+            destroyed.unassigned.append(customer)
+            route = destroyed.find_route(customer)
             route.remove(customer)
 
-        return self.remove_empty_routes(state)
+        return self.remove_empty_routes(destroyed)
 
+    def shaw_removal(self, state: CvrpState, rnd_state: rnd.RandomState):
+        q = self.customers_to_remove
+        p = self.degree
+        destroyed = state.copy()
+        
+        while q > 0:
+            y = rnd_state.random()
+            removed_customer = destroyed.data.customers[int(pow(y, p) * len(destroyed.data.customers))]
+            if removed_customer in destroyed.unassigned:
+                continue
+            destroyed = self.remove_specific_customer(destroyed, removed_customer)
+            q = q - 1
+        
+        return self.remove_empty_routes(destroyed)
+        
 
     def remove_empty_routes(self, state: CvrpState):
         """
