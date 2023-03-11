@@ -38,7 +38,7 @@ class Repairation:
           for idx in range(len(route) + 1):
 
               if self.can_insert(state, customer, route):
-                  cost = self.insert_cost(customer, route, idx)
+                  cost = self.insert_cost(state, customer, route, idx)
 
                   if best_cost is None or cost < best_cost:
                       best_cost, best_route, best_idx = cost, route, idx
@@ -46,7 +46,7 @@ class Repairation:
       return best_route, best_idx
 
 
-  def can_insert(self, state, customer, route):
+  def can_insert(self, state: CvrpState, customer, route):
       """
       Checks if inserting customer does not exceed vehicle capacity.
       """
@@ -54,7 +54,7 @@ class Repairation:
       return total <= state.data.capacity
 
 
-  def insert_cost(state, customer, route, idx):
+  def insert_cost(self, state: CvrpState, customer, route, idx):
       """
       Computes the insertion cost for inserting customer in route at idx.
       """
