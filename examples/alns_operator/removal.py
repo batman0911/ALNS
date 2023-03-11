@@ -4,7 +4,6 @@ import numpy.random as rnd
 
 from alns_state.state import CvrpState
 
-customers_to_remove = 5
 
 class Removal:
     def __init__(self,
@@ -21,7 +20,7 @@ class Removal:
         # destroyed = alns_state.copy()
 
         for customer in rnd_state.choice(
-                range(1, state.data.dimension), customers_to_remove, replace=False
+                range(1, state.data.dimension), self.customers_to_remove, replace=False
         ):
             state.unassigned.append(customer)
             route = state.find_route(customer)
